@@ -1,0 +1,16 @@
+name: commitlint
+on: 
+  pull_request:
+  push:
+    branches:
+      - '**'
+      - '!main'
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - uses: coolapso/convcommitlint@v0.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
